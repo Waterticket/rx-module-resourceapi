@@ -8,6 +8,7 @@
         </table>
     </tables>
     <columns>
+        <column name="items.package_srl" alias="package_srl" />
         <column name="items.file_srl" alias="file_srl" />
     </columns>
     <conditions>

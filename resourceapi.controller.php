@@ -205,6 +205,7 @@ class ResourceapiController extends Resourceapi
 		$args->path = $path;
 		$output = executeQuery('resourceapi.getFileSrlByPath', $args);
 
+		$package_srl = $output->data->package_srl;
 		$file_srl = $output->data->file_srl;
 		$oFileModel = getModel('file');
 		$file_data = $oFileModel->getFile($file_srl);
@@ -226,6 +227,9 @@ class ResourceapiController extends Resourceapi
 
 		ob_start();
 		$this->remove_made_tar($tar_file);
+
+		$oResourceApiModel = getModel('resourceapi');
+		$oResourceApiModel->increaseDownloadCount(135, $package_srl);
 		ob_end_clean();
 		die();
 	}
