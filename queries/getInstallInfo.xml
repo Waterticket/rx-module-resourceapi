@@ -1,0 +1,22 @@
+<query id="getInstallInfo" action="select">
+    <tables>
+    	<table name="resource_packages" alias="packages" />
+        <table name="resource_items" alias="items" type="left join">
+        	<conditions>
+        		<condition operation="equal" column="items.item_srl" default="packages.latest_item_srl" filter="number" notnull="notnull" pipe="and" />
+        	</conditions>
+        </table>
+    </tables>
+    <columns>
+        <column name="items.package_srl" />
+        <column name="items.version" />
+        <column name="packages.path" />
+        <column name="items.item_srl" />
+        <column name="packages.title" />
+        <column name="packages.description" alias="package_description"/>
+    </columns>
+    <conditions>
+        <condition operation="equal" column="packages.package_srl" var="package_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>
+<!--Order By item_srl-->

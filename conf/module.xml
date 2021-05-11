@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+	<grants>
+	</grants>
+	<actions>
+		<!-- 관리자 액션 -->
+		<action name="dispResourceapiAdminConfig" type="view" menu_name="resourceapi" admin_index="true" />
+		<action name="procResourceapiAdminInsertConfig" type="controller" />
+		<!-- 일반 액션 -->
+		<action name="getResourceapiLastupdate" type="controller" check_csrf="false" />
+		<action name="getResourceapiPackagelist" type="controller" check_csrf="false" />
+		<action name="getResourceapiMenuPackageList" type="controller" check_csrf="false" />
+		<action name="getResourceapiSkinPackageList" type="controller" check_csrf="false" />
+		<action name="getResourceapiPackages" type="controller" check_csrf="false" />
+		<action name="getResourceapiInstallInfo" type="controller" check_csrf="false" />
+		<action name="getResourceapiUpdate" type="controller" check_csrf="false" />
+		<action name="procResourceapiDownload" type="controller" check_csrf="false" />
+	</actions>
+	<menus>
+		<menu name="resourceapi" type="all">
+			<title xml:lang="ko">Resource Api</title>
+		</menu>
+	</menus>
+</module>

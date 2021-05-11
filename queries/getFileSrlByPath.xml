@@ -1,0 +1,17 @@
+<query id="getFileSrlByPath" action="select">
+    <tables>
+    	<table name="resource_packages" alias="packages" />
+        <table name="resource_items" alias="items" type="left join">
+        	<conditions>
+        		<condition operation="equal" column="items.item_srl" default="packages.latest_item_srl" filter="number" notnull="notnull" pipe="and" />
+        	</conditions>
+        </table>
+    </tables>
+    <columns>
+        <column name="items.file_srl" alias="file_srl" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="packages.path" var="path" notnull="notnull" />
+    </conditions>
+</query>
+<!--Order By item_srl-->

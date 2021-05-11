@@ -1,0 +1,14 @@
+<query id="getLastUpdate" action="select">
+    <tables>
+        <table name="resource_packages" />
+    </tables>
+    <columns>
+        <column name="last_update" />
+    </columns>
+    <conditions>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="last_update" order="desc" />
+        <list_count var="list_count" default="1" />
+    </navigation>
+</query>
