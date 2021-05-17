@@ -95,6 +95,7 @@ class ResourceapiController extends Resourceapi
 
 		$package_srls = $vars->package_srls; // (int or array)
 		if(is_numeric($package_srls)) $package_srls = array($package_srls);
+		else $package_srls = explode(',', $package_srls);
 
 		$package_list = array();
 
@@ -115,7 +116,7 @@ class ResourceapiController extends Resourceapi
 		$obj->packageList = new stdClass();
 
 		if(!empty($package_list))
-			$obj->packageList->item = (object) $package_list;
+			$obj->packageList->item = $package_list;
 
 		$onx = new ObjectAndXML();
 		die($onx->response($obj));
